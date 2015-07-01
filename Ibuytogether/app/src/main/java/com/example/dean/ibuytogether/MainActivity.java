@@ -1,5 +1,6 @@
 package com.example.dean.ibuytogether;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -12,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -44,7 +44,6 @@ public class MainActivity extends ActionBarActivity {
         search_button.setOnClickListener(getDBRecord);
         editText =(EditText)findViewById(R.id.edit_text);
         handler = new myHandler();
-
 
     }
     class searchThread extends Thread {
@@ -160,15 +159,14 @@ public class MainActivity extends ActionBarActivity {
         @Override
         public void onClick(View v) {
             setContentView(R.layout.second);
-            TextView t = (TextView)findViewById(R.id.content);
-            t.setText(content);
-            ImageView i =(ImageView)findViewById(R.id.back);
-            i.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    setContentView(R.layout.activity_main);
-                }
-            });
+            Intent intent = new Intent();
+            intent.setClass(MainActivity.this, ContentActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putString("content",content);
+            intent.putExtras(bundle);
+
+            startActivity(intent);
+
 
         }
     }
