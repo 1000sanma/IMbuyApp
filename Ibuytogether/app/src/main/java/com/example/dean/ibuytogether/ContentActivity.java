@@ -18,6 +18,15 @@ public class ContentActivity extends Activity {
         Bundle bundle = this.getIntent().getExtras();
         String content = bundle.getString("content");
         TextView t = (TextView)findViewById(R.id.content);
+        ImageView m = (ImageView)findViewById(R.id.push);
+        m.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(ContentActivity.this, PushActivity.class);
+                startActivity(intent);
+            }
+        });
         t.setText(content);
         ImageView i =(ImageView)findViewById(R.id.back);
         i.setOnClickListener(new View.OnClickListener() {

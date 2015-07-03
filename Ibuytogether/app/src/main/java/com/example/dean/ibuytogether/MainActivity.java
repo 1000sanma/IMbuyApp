@@ -56,10 +56,11 @@ public class MainActivity extends ActionBarActivity {
                 System.out.println(result);
                 JSONArray jsonArray = new JSONArray(result);
                 String[] output;
-                output = new String[3];
+                output = new String[6];
                 for(int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonData3 = jsonArray.getJSONObject(i);
                     output[i] =jsonData3.getString("title");
+                    output[i+3] =jsonData3.getString("content");
                 }
                 Message msg = handler.obtainMessage();
                 msg.obj= output;
@@ -92,12 +93,23 @@ public class MainActivity extends ActionBarActivity {
                 TextView title2 = new TextView(MainActivity.this);
                 title.setText(s1);
                 title.setLayoutParams(view_layout);
+                title.setTextSize(14);
+                title.setPadding(0,18,0,18);
+                title.setOnClickListener(new text_listener(output[3]));
                 user_list.addView(title);
+
                 title1.setText(s2);
                 title1.setLayoutParams(view_layout);
+                title1.setTextSize(14);
+                title1.setPadding(0,18,0,18);
+                title1.setOnClickListener(new text_listener(output[4]));
                 user_list.addView(title1);
+
                 title2.setText(s3);
                 title2.setLayoutParams(view_layout);
+                title2.setTextSize(14);
+                title2.setPadding(0,18,0,18);
+                title2.setOnClickListener(new text_listener(output[5]));
                 user_list.addView(title2);
             }
             if(msg.arg1==2){
@@ -119,30 +131,40 @@ public class MainActivity extends ActionBarActivity {
                 TextView title3 = new TextView(MainActivity.this);
                 TextView title4 = new TextView(MainActivity.this);
                 title.setText(s1);
+                title.setTextSize(14);
+                title.setPadding(0,18,0,18);
                 title.setLayoutParams(view_layout);
                 user_list.addView(title);
                 title.setOnClickListener(new text_listener(output[5]));
                 System.out.println("3");
 
                 title1.setText(s2);
+                title1.setTextSize(14);
+                title1.setPadding(0,18,0,18);
                 title1.setLayoutParams(view_layout);
                 user_list.addView(title1);
                 title1.setOnClickListener(new text_listener(output[6]));
                 System.out.println("4");
 
                 title2.setText(s3);
+                title2.setTextSize(14);
+                title2.setPadding(0,18,0,18);
                 title2.setLayoutParams(view_layout);
                 user_list.addView(title2);
                 title2.setOnClickListener(new text_listener(output[7]));
                 System.out.println("5");
 
                 title3.setText(s4);
+                title3.setTextSize(14);
+                title3.setPadding(0,18,0,18);
                 title3.setLayoutParams(view_layout);
                 user_list.addView(title3);
                 title3.setOnClickListener(new text_listener(output[8]));
                 System.out.println("6");
 
                 title4.setText(s5);
+                title4.setTextSize(14);
+                title4.setPadding(0,18,0,18);
                 title4.setLayoutParams(view_layout);
                 user_list.addView(title4);
                 title4.setOnClickListener(new text_listener(output[9]));
@@ -158,7 +180,6 @@ public class MainActivity extends ActionBarActivity {
         }
         @Override
         public void onClick(View v) {
-            setContentView(R.layout.second);
             Intent intent = new Intent();
             intent.setClass(MainActivity.this, ContentActivity.class);
             Bundle bundle = new Bundle();

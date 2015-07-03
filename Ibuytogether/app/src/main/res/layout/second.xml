@@ -19,11 +19,11 @@
             android:padding="5dp"
             android:src="@drawable/back"/>
         <ImageView
-            android:id="@+id/timeorder"
+            android:id="@+id/push"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:padding="5dp"
-            android:src="@drawable/time"/>
+            android:src="@drawable/push"/>
         <ImageView
             android:id="@+id/hot"
             android:layout_width="100dp"
