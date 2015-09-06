@@ -25,7 +25,7 @@ public class DBconnector {
         String result = "";
         try {
             HttpClient httpClient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost("http://140.112.245.14/"+fn);
+            HttpPost httpPost = new HttpPost("http://140.112.107.142/"+fn);
             ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
             params.add(new BasicNameValuePair("query_string", query_string));
             httpPost.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
